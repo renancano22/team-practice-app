@@ -1,0 +1,8 @@
+{
+  "name": "team-practice-app",
+  "version": "1.0.0",
+  "description": "A tiny Node.js app for practicing Git, GitHub, and Vercel.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

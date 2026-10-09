@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Practice App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 640px;
+      margin: 40px auto;
+      padding: 0 16px;
+      background: #f4f6f8;
+      color: #222;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px 24px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+    h1 { margin-top: 0; }
+    li { margin: 6px 0; }
+    #api-result { font-family: monospace; color: #0a6; }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Team Practice App</h1>
+    <p>A tiny Node.js app for practicing Git, GitHub, and Vercel.</p>
+  </div>
+
+  <div class="card">
+    <h2>Team Members</h2>
+    <ul>
+      <li>DevOps Admin: (your name here)</li>
+      <li>Developer 1: (your name here)</li>
+      <li>Developer 2: (your name here)</li>
+      <li>Developer 3: (your name here)</li>
+      <li>Developer 4: (your name here)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Backend Status</h2>
+    <p id="api-result">Loading...</p>
+  </div>
+
+  <script>
+    // Calls the Node.js function in api/hello.js
+    fetch("/api/hello")
+      .then((res) => res.json())
+      .then((data) => {
+        document.getElementById("api-result").textContent =
+          data.message + " (version " + data.version + ")";
+      })
+      .catch(() => {
+        document.getElementById("api-result").textContent =
+          "Could not reach the backend.";
+      });
+  </script>
+
+</body>
+</html>
